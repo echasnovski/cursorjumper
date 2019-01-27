@@ -1,0 +1,4 @@
+Name: Jump Cursor
+Description: Makes cursor jump over predefined string barriers
+Binding: jump
+Interactive: false

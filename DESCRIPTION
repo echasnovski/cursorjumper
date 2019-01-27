@@ -6,8 +6,11 @@ Authors@R:
            family = "Chasnovski",
            role = c("aut", "cre"),
            email = "evgeni.chasnovski@gmail.com")
-Description: RStudio addin for cursor jumping over commonly
-    autocreated symbols.
+Description: RStudio addin for cursor jumping over predefined barrier strings.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+Imports: 
+    rstudioapi
+RoxygenNote: 6.1.1
+Roxygen: list(markdown = TRUE)
