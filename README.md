@@ -9,6 +9,21 @@ The initial idea behind this addin was to adjust for RStudio mechanism of matchi
 
 With 'cursorjumper' you can define keyboard shortcut to "move out" from inside of autocompleted symbols. This package has some reasonable default strings to be omitted. See examples.
 
+Demo gifs
+---------
+
+Default behaviour:
+
+![](man/figures/cursorjumper_default.gif)
+
+Custom behaviour:
+
+![](man/figures/cursorjumper_custom.gif)
+
+Works in console:
+
+![](man/figures/cursorjumper_console.gif)
+
 Installation
 ------------
 
