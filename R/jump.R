@@ -18,13 +18,10 @@
 jump <- function() {
   cont <- rstudioapi::getActiveDocumentContext()
 
-  # browser()
-
   barrier_strings <- get_barrier_strings()
-  barrier_max_nchar <- max(nchar(barrier_strings))
 
-  barrier <- detect_barrier(context = cont, max_nchar = barrier_max_nchar)
-  is_barrier_detected <- startsWith(x = barrier, prefix = barrier_strings)
+  right_line <- get_right_line(context = cont)
+  is_barrier_detected <- startsWith(x = right_line, prefix = barrier_strings)
 
   if (any(is_barrier_detected)) {
     # If there are several matches, the first one is used
@@ -36,16 +33,11 @@ jump <- function() {
   TRUE
 }
 
-detect_barrier <- function(context, max_nchar) {
+get_right_line <- function(context) {
   cur_pos <- get_position(context)
+  cur_line <- context$contents[cur_pos[1]]
 
-  # Remove escape symbols with `noquote()`
-  cur_line <- noquote(context$contents[cur_pos[1]])
-
-  # Get the right end of line to be detected
-  right_col <- min(cur_pos[2] + max_nchar - 1, nchar(cur_line))
-
-  substr(x = cur_line, start = cur_pos[2], stop = right_col)
+  substr(x = cur_line, start = cur_pos[2], stop = nchar(cur_line))
 }
 
 execute_jump <- function(context, len) {
