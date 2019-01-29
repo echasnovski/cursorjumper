@@ -76,7 +76,7 @@ mtcars[["vs"]]|^|
 
 You can define your one set of string to be jumped over. In 'cursorjumper' they are called "barrier strings". Here are the default barrier strings (divided with ","):
 
-    #> "]], ']], )]], ]], "], '], )], "), '), ]), (), [], {}, '', "", ``, ), ], }, ', ", `
+    "]], ']], )]], ]], "], '], )], (), [], {}, '', "", ``, ), ], }, ', ", `
 
 To set and get barrier strings there are `set_barrier_strings()` and `get_barrier_strings()` functions:
 

@@ -126,8 +126,6 @@ default_barrier_strings <- c(
   '"]]', "']]", ")]]", "]]",
   # `]` subset
   '"]', "']", ")]",
-  # End of function call
-  '")', "')", "])",
   # Autocreated pairs
   "()", "[]", "{}", "''", '""', "``",
   # End of autocreated pairs
