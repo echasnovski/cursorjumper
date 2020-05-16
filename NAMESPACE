@@ -3,4 +3,5 @@
 export(default_barrier_strings)
 export(get_barrier_strings)
 export(jump)
+export(jump_single)
 export(set_barrier_strings)

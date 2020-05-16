@@ -137,3 +137,7 @@ If multiple barrier strings are matched, the first one is used:
 # because it comes earlier in barrier strings than "a"
 abc|^|de
 ```
+
+### Single character jumping
+
+There is also a "Jump Single Character" addin, which is an alternative to "Right" arrow keyboard button. It is useful if you want an alternative keyboard shortcut for it, which RStudio doesn't seem to support yet.

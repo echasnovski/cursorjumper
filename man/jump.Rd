@@ -2,9 +2,12 @@
 % Please edit documentation in R/jump.R
 \name{jump}
 \alias{jump}
+\alias{jump_single}
 \title{Jump over predefined barrier strings}
 \usage{
 jump()
+
+jump_single()
 }
 \value{
 Returns \code{TRUE} if there were no errors.
@@ -13,14 +16,17 @@ Returns \code{TRUE} if there were no errors.
 Jump over predefined barrier strings
 }
 \details{
-Execute this function to perform jump in \link[rstudioapi:getActiveDocumentContext]{active document context}. It means that cursor
+Execute these functions to perform jump in \link[rstudioapi:getActiveDocumentContext]{active document context}. It means that cursor
 movement will be done in both source and console panels.
 
-Jump is done if any \link[=set_barrier_strings]{set barrier strings} is found to
-the right of the current cursor position (on the current line). If multiple
-barrier strings are found then the first one is said "to be detected". After
-that cursor is moved right after the detected barrier.
+In \code{jump()} jump is done if any \link[=set_barrier_strings]{set barrier strings}
+is found to the right of the current cursor position (on the current line).
+If multiple barrier strings are found then the first one is said "to be
+detected". After that cursor is moved right after the detected barrier.
 
-\strong{Note} that this function is usually helpful if binded to a keyboard
+In \code{jump_single()} jump is done always by one single character to the right.
+This imitates the "Right" arrow of keyboard.
+
+\strong{Note} that these functions are usually helpful if binded to a keyboard
 shortcut.
 }

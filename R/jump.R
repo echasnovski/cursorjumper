@@ -1,19 +1,26 @@
 #' Jump over predefined barrier strings
 #'
-#' @details Execute this function to perform jump in [active document
+#' @details Execute these functions to perform jump in [active document
 #' context][rstudioapi::getActiveDocumentContext()]. It means that cursor
 #' movement will be done in both source and console panels.
 #'
-#' Jump is done if any [set barrier strings][set_barrier_strings()] is found to
-#' the right of the current cursor position (on the current line). If multiple
-#' barrier strings are found then the first one is said "to be detected". After
-#' that cursor is moved right after the detected barrier.
+#' In `jump()` jump is done if any [set barrier strings][set_barrier_strings()]
+#' is found to the right of the current cursor position (on the current line).
+#' If multiple barrier strings are found then the first one is said "to be
+#' detected". After that cursor is moved right after the detected barrier.
 #'
-#' **Note** that this function is usually helpful if binded to a keyboard
+#' In `jump_single()` jump is done always by one single character to the right.
+#' This imitates the "Right" arrow of keyboard.
+#'
+#' **Note** that these functions are usually helpful if binded to a keyboard
 #' shortcut.
 #'
 #' @return Returns `TRUE` if there were no errors.
 #'
+#' @name jump
+NULL
+
+#' @rdname jump
 #' @export
 jump <- function() {
   cont <- rstudioapi::getActiveDocumentContext()
@@ -33,6 +40,14 @@ jump <- function() {
   TRUE
 }
 
+#' @rdname jump
+#' @export
+jump_single <- function() {
+  execute_jump(context = rstudioapi::getActiveDocumentContext(), len = 1)
+
+  TRUE
+}
+
 get_right_line <- function(context) {
   cur_pos <- get_position(context)
   cur_line <- context$contents[cur_pos[1]]
@@ -41,9 +56,17 @@ get_right_line <- function(context) {
 }
 
 execute_jump <- function(context, len) {
+  # print(context$contents)
   cur_pos <- get_position(context)
+  # print(cur_pos)
   new_pos <- cur_pos
-  new_pos[2] <- new_pos[2] + len
+  if (cur_pos[2] + len > nchar(context$contents)[cur_pos[1]]) {
+    # Move to next line if new position goes out of the current one
+    new_pos[1] <- cur_pos[1] + 1
+    new_pos[2] <- 1
+  } else {
+    new_pos[2] <- new_pos[2] + len
+  }
 
   rstudioapi::setCursorPosition(position = new_pos)
 }

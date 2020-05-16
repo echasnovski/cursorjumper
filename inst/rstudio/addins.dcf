@@ -2,3 +2,8 @@ Name: Jump Cursor
 Description: Makes cursor jump over predefined string barriers
 Binding: jump
 Interactive: false
+
+Name: Jump Single Character
+Description: Makes cursor jump over single character
+Binding: jump_single
+Interactive: false
