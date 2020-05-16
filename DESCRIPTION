@@ -12,5 +12,5 @@ Encoding: UTF-8
 LazyData: true
 Imports: 
     rstudioapi
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.0
 Roxygen: list(markdown = TRUE)

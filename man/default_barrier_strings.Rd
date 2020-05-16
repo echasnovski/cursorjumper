@@ -4,7 +4,9 @@
 \name{default_barrier_strings}
 \alias{default_barrier_strings}
 \title{Default barrier strings}
-\format{An object of class \code{character} of length 22.}
+\format{
+An object of class \code{character} of length 19.
+}
 \usage{
 default_barrier_strings
 }
