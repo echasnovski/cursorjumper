@@ -60,7 +60,10 @@ execute_jump <- function(context, len) {
   cur_pos <- get_position(context)
   # print(cur_pos)
   new_pos <- cur_pos
-  if (cur_pos[2] + len > nchar(context$contents)[cur_pos[1]]) {
+
+  # Here `nchar(*) + 1` is needed instead of `nchar(*)` to allow cursor to jump
+  # at the line end (just after the last character in line)
+  if (cur_pos[2] + len > nchar(context$contents)[cur_pos[1]] + 1) {
     # Move to next line if new position goes out of the current one
     new_pos[1] <- cur_pos[1] + 1
     new_pos[2] <- 1
